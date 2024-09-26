@@ -44,6 +44,11 @@ function UserDashboard() {
     try {
       const response = await axios.get<ApiResponse>('/api/accept-messages');
       setValue('acceptMessages', response.data.isAcceptingMessage);
+      toast({
+        title: 'Done',
+        description:'Switched',
+        variant: 'default',
+      });
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       toast({
@@ -133,7 +138,7 @@ function UserDashboard() {
       <h1 className="text-4xl font-bold mb-4 text-gray-800">User Dashboard</h1>
 
       <div className="mb-4">
-        <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>
+        <h2 className="text-lg font-semibold mb-2 text-gray-800">Copy Your Unique Link</h2>
         <div className="flex items-center">
           <input
             type="text"
@@ -151,15 +156,16 @@ function UserDashboard() {
           checked={acceptMessages}
           onCheckedChange={handleSwitchChange}
           disabled={isSwitchLoading}
+          className='bg-white'
         />
-        <span className="ml-2 text-gray-700">
+        <span className="ml-2 text-gray-800">
           Accept Messages: {acceptMessages ? 'On' : 'Off'}
         </span>
       </div>
       <Separator className="my-4" />
 
       <Button
-        className="mt-4"
+        className="mt-4 bg-gray-800"
         variant="outline"
         onClick={() => fetchMessages(true)}
         disabled={isLoading}

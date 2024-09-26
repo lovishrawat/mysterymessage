@@ -30,14 +30,14 @@ export async function POST(request: Request) {
           success: false,
           message:"failed to update user status to accept messages",
           updatedUser
-        },{status:200}
+        },{status:401}
       )
     }
     return Response.json(
       {
         success: true,
         message:"Message acceptance status updated successfully"
-      },{status:401}
+      },{status:200}
     )
   } catch (error) {
     console.log("failed to update user status to accept messages")
