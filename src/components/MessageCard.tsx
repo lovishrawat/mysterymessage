@@ -3,7 +3,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -33,7 +32,7 @@ type MessageCardProps = {
 const MessageCard = ({message, onMessageDelete}: MessageCardProps) => {
   const {toast} = useToast()
   const handleDeleteConfirm = async()=>{
-    const response = await axios.delete<ApiResponse>(`/api/delete-message/${message._id}`)
+    const response = await axios.delete<ApiResponse>(`/api/delete-messages/${message._id}`)
     toast({
       title: response.data.message
     })

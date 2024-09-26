@@ -86,8 +86,8 @@ const page = () => {
 
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rouned-lg shadow-md text-black ">
+    <div className="flex justify-center items-center min-h-screen bg-gray-800">
+      <div className="w-full max-w-md p-8 space-y-8 bg-white text-black rounded-lg shadow-md ">
         <div className="text-center">
           <h1 className="text-4l font-extrabold tracking-tight lg:text-5xl mb-6">Join Mystery Message</h1>
           <p>Sign up to start your anonymous adventure</p>
@@ -110,7 +110,7 @@ const page = () => {
               </FormControl>
                 {isCheckingUsername && <Loader2 className="animate-spin"/>}
                 <p className={`text-sm ${usernameMessage === "Username is available" ? "text-green-500" : "text-red-500"}`}>
-                  test {usernameMessage}
+                  {usernameMessage}
                 </p>
               <FormMessage />
             </FormItem>
